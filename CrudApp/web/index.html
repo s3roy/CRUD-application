@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="column1">
+            <section class="logo">
+                <img src="logo.jpg" alt="">
+                <h1>Frontend<br><span>Backend</span></h1>
+                <h2 class="animate-character">Welcome to My Class</h2>
+            </section>
+
+            <section class="database">
+                <h1 class="acc">Account Details</h1>
+                <table class="list" id="accountList">
+                    <thead>
+                        <tr class="headings">
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <th>Country</th>
+                            <th>Currency</th>
+                            <th>ExternalId</th>
+                            <th>Update/Delete</th>
+                        </tr>
+                    <thead>
+
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <div class="column2">
+         
+            <section>
+                <div class="form">
+                    <h1>Add your account</h1>
+                    <form onsubmit="onFormSubmit()">
+    
+                        <div>
+                        <label for="fullname">Full Name</label>
+                        <input type="text" name="fullname" id="fullName" placeholder="Full Name" required>
+                        </div>
+    
+                        <div>
+                            <label for="country">Country</label>
+                            <select id="country" name="country">
+                                <option>Select country</option>
+                                <option value="UK">UK</option>
+                                <option value="EUROPE">EUROPE</option>
+                                <option value="INDIA">India</option>
+                                <option value="US">US</option>
+                            </select>
+                        </div>
+    
+                        <div>
+                        <label for="currency">Currency</label>
+                        <select id="currency" name="currency">
+                            <option>Select currency</option>
+                            <option value="GBP">British Pound Sterling</option>
+                            <option value="EUR">Euro</option>
+                            <option value="INR">Indian Rupee</option>
+                            <option value="USD">US Dollar</option>
+                        </select>
+                        </div>
+    
+                        <div>
+                        <label for="externalid">External ID</label>
+                        <input type="text" name="externalid" id="externalId" placeholder="ExternalId">
+                        </div>
+                       
+                        <div>
+                            <input type="submit" value="Add">
+                        </div>
+    
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

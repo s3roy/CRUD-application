@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud App</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="column1">
+            <section class="logo">
+                <img th:src="@{/img/logo.jpg}" alt="">
+                <h1>Demand<br><span>Farm</span></h1>
+                <h2 class="animate-character">Welcome to demand Farm</h2>
+            </section>
+
+            <section class="database">
+                <h1 class="acc">Account Details</h1>
+                <table class="list" id="accountList">
+                    <thead>
+                        <tr class="headings">
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <th>Country</th>
+                            <th>Currency</th>
+                            <th>ExternalId</th>
+                            <th colspan=2>Update/Delete</th>
+                        </tr>
+                    <thead>
+
+                    <tbody>
+						<tr th:each="account:${accounts}">
+							<td th:text="${account.id}"></td>
+							<td th:text="${account.fullName}"></td>
+							<td th:text="${account.country}"></td>
+							<td th:text="${account.currency}"></td>
+							<td th:text="${account.externlid}"></td>
+							<td><button th:attr="onclick=|editForm('${account}')|" id="update">Edit</button></td>
+							<td><a th:href="@{/deleteAccount/{id}(id=${account.id})}">Delete</a></td></tr>
+							
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <div class="column2">
+         
+            <section>
+					 <div class="form">
+                    <h1>Add your account</h1>
+                     <form  action="#" th:action="@{/accounts}"  method="post">
+                     	
+                     	<input type="hidden" name="id">
+    					<div>
+                        <label for="fullname">Full Name</label>
+                        <input type="text" name="fullName" id="fullName" placeholder="Full Name"  required>
+                        </div>
+    
+                        <div>
+                            <label for="country">Country</label>
+                            <select id="country" name="country">
+                                <option>Select country</option>
+                                <option value="UK">UK</option>
+                                <option value="EUROPE">EUROPE</option>
+                                <option value="INDIA">India</option>
+                                <option value="US">US</option>
+                            </select>
+                        </div>
+    
+                        <div>
+                        <label for="currency">Currency</label>
+                        <select id="currency" name="currency">
+                            <option>Select currency</option>
+                            <option value="GBP">British Pound Sterling</option>
+                            <option value="EUR">Euro</option>
+                            <option value="INR">Indian Rupee</option>
+                            <option value="USD">US Dollar</option>
+                        </select>
+                        </div>
+    
+                        <div>
+                        <label for="externalid">External ID</label>
+                        <input type="text" name="externlid" id="externlId" placeholder="ExternalId">
+                        </div>
+                       
+                        <div>
+                            <input type="submit" value="Add" id="change" >
+                        </div>
+    
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script type="text/javascript" th:src="@{/script.js}"></script>
+</body>
+</html>
